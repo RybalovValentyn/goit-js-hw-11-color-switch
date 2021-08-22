@@ -19,7 +19,6 @@ btnStart.addEventListener('click', bodyColorToogle);
 btnStop.addEventListener('click',toogleColorStop)
 
 const logger = function bodyTime() {
-  console.log('dsgdsg');
 if (isStopped === false) {
   let bodyToogleColor = colors[randomIntegerFromInterval()]
   console.log(bodyToogleColor);
@@ -29,15 +28,17 @@ if (isStopped === false) {
 };
 
 function bodyColorToogle() {
+  console.log('click');
+  btnStart.removeEventListener('click', bodyColorToogle)
    isStopped = false;
-  console.log(isRunToogleColor);
     if (isRunToogleColor ===false){ 
-     intervalId = setInterval(logger,1000);
+     intervalId = setInterval(logger,2000);
           console.log('is run');
       };
 };
 
 function toogleColorStop() {
+  btnStart.addEventListener('click', bodyColorToogle);
   clearInterval(intervalId);
    isStopped = true;
    isRunToogleColor =false
